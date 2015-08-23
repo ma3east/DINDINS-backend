@@ -1,0 +1,25 @@
+{
+  "name": "dindins-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spkb/DINDINS-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spkb/DINDINS-backend/issues"
+  },
+  "homepage": "https://github.com/spkb/DINDINS-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.3",
+    "morgan": "^1.6.1"
+  }
+}
