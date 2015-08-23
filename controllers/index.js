@@ -13,7 +13,7 @@ router.get('/api', function(req, res) {
   // want to return a list of all the products!
 });
 
-//why does this route not work when on products page?
+//why does this route not work when on products page? 
 router.get('/api/products', function(req, res, err) {
 
   if (err)
