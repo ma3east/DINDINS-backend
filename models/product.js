@@ -6,9 +6,8 @@ var productSchema = new mongoose.Schema({
 	name: String,
 	image: String,
 	quantity: String,
-	bestBefore: String,
+	bestBefore: Date,
 	available: Boolean,
-	userId: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
 var Product = mongoose.model('Product', productSchema);
