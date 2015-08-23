@@ -1,14 +1,11 @@
 var mongoose = require('mongoose');
 
-var Product = mongoose.model('Product');
-
 var productSchema = new mongoose.Schema({
 	name: String,
 	image: String,
 	quantity: String,
-	bestBefore: String,
-	available: Boolean,
-	userId: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+	bestBefore: Date,
+	available: Boolean
 });
 
 var Product = mongoose.model('Product', productSchema);
