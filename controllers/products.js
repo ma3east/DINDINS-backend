@@ -47,50 +47,12 @@ router.post('/', function(req, res, next) {
   });
 });
 
-// update a product - in progress
+// update a product - WORKING
 
-// router.post('/:product_id', function(req, res) {
-//   Product.findByIdAndUpdate(req.params.id, req.body, function(err, product) {
-//     if (err) {
-//       console.log("product not updated - please check request");
-//       res.send(err);
-//     } else {
-//       console.log(req.params.id);
-//       console.log(req.body);
-//       res.json(req.body);
-//     }
-
-//   });
-// });
-
-// router.put('/:product_id', function(req, res) {
-//   Product.findById(req.params.product_id, function(err, product) {
-//     if (err) {
-//       res.send(err);
-//     }
-
-//     product.name = req.body.name;
-//     product.image = req.body.image;
-//     product.quantity = req.body.quantity;
-//     product.bestBefore = req.body.bestBefore;
-//     product.available = req.body.available;
-
-//     product.save(function(err) {
-//       if (err) {
-//         res.send(err);
-//       } else {
-//         console.log("product updated!"); 
-//       }
-//       res.json(product);
-//     });
-//   });
-// });
-// seems to update with no erros but checking if updating right id
 router.put('/:product_id', function(req,res) {
   Product.findById(req.params.product_id, function(err, product) {
     if (err) {
       console.log(err);
-      // console.log("params prod id " + req.params.product_id + " params id " + req.params.id + ' Product updated!')
       res.send(err);
     }
 
@@ -98,7 +60,7 @@ router.put('/:product_id', function(req,res) {
       product[property] = req.body[property];
     }
 
-    // save the product
+    // save the updated product
     product.save(function(err) {
       if (err) {
         console.log(err);

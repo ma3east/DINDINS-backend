@@ -42,6 +42,32 @@ router.post('/', function(req, res, next) {
 
 });
 
+// update a user - WORKING
+
+router.put('/:user_id', function(req,res) {
+  User.findById(req.params.user_id, function(err, user) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    }
+
+    for (property in req.body) {
+      user[property] = req.body[property];
+    }
+
+    // save the updated user
+    user.save(function(err) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        console.log("User updated for user_id " + req.params.user_id);
+        res.json(user);
+      }
+    });
+  });
+})
+
 // delete a user - WORKING
 router.delete('/:user_id', function(req, res, next) {
 

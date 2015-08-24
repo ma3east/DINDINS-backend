@@ -42,6 +42,32 @@ router.post('/', function(req, res, next) {
 
 });
 
+// update a transaction - WORKING
+
+router.put('/:transaction_id', function(req,res) {
+  Transaction.findById(req.params.transaction_id, function(err, transaction) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    }
+
+    for (property in req.body) {
+      transaction[property] = req.body[property];
+    }
+
+    // save the updated transaction
+    transaction.save(function(err) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        console.log("Transaction updated for transaction_id " + req.params.transaction_id);
+        res.json(transaction);
+      }
+    });
+  });
+})
+
 // delete a transaction - WORKING
 router.delete('/:transaction_id', function(req, res, next) {
 
