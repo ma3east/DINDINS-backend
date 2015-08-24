@@ -47,8 +47,31 @@ router.post('/', function(req, res, next) {
   });
 });
 
-// update a product
+// update a product - WORKING
 
+router.put('/:product_id', function(req,res) {
+  Product.findById(req.params.product_id, function(err, product) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    }
+
+    for (property in req.body) {
+      product[property] = req.body[property];
+    }
+
+    // save the updated product
+    product.save(function(err) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        console.log("Product updated for product_id " + req.params.product_id);
+        res.json(product);
+      }
+    });
+  });
+})
 
 // delete a product - WORKING
 router.delete('/:product_id', function(req, res, next) {
