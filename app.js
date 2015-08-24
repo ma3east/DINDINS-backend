@@ -13,10 +13,11 @@ var Transaction = require('./models/transaction');
 
 mongoose.connect('mongodb://localhost/dindins');
 
-app.use(require('./controllers'));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(require('./controllers'));
+
 app.use(morgan('dev'));
 
 
@@ -39,7 +40,8 @@ console.log("Dindin bells are ringing on port " + port);
 // var prod2 = new Product({
 
 //   name: "rice",
-//   quantity: "3 packets"
+//   quantity: "3 packets",
+//   image: "http://www.fillmurray.com/150/150"
 
 // })
 
