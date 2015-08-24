@@ -8,24 +8,24 @@
 	},
 	{
 		"name":"ham",
-		"image":"url",
-		"quantity":"amount",
-		"bestBefore":date,
+		"image":"https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fgraphics8.nytimes.com%2Fimages%2F2013%2F03%2F20%2Fdining%2F20HAM_SPAN%2F20HAM_SPAN-articleLarge.jpg&f=1",
+		"quantity":"200g",
+		"bestBefore":2035-10-12,
 		"available":true
 	},
 	{
 		"name":"fish",
-		"image":"url",
-		"quantity":"amount",
-		"bestBefore":date,
+		"image":"https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F7%2F77%2FPuffer_Fish_DSC01257.JPG&f=1",
+		"quantity":"500g",
+		"bestBefore":2016-1-1,
 		"available":true
 	},
 	{
 		"name":"apples",
-		"image":"url",
-		"quantity":"amount",
-		"bestBefore":date,
-		"available":true
+		"image":"https://images.duckduckgo.com/iu/?u=http%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M0ec96fe04679138ca24d2964074f8232H0%26pid%3D15.1&f=1",
+		"quantity":"10kg",
+		"bestBefore":2015-4-4,
+		"available":false
 	}
 	]
 }
