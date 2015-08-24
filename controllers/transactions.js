@@ -5,7 +5,7 @@ var User = require('../models/user');
 var Product = require('../models/product');
 var Transaction = require('../models/transaction');
 
-//get list of transactions
+//get list of transactions - working
 router.get('/', function(req, res) {
   Transaction.find(function(err, transactions) {
     if (err) {
@@ -15,6 +15,31 @@ router.get('/', function(req, res) {
     }
 
   })
+});
+
+//find a single transaction - working
+router.get('/:transaction_id', function(req, res){
+  Transaction.findById(req.params.transaction_id, function(err, user) {
+    if (err) {
+      res.send(err);
+    }
+    console.log('transaction id ' + req.params.transaction_id + 'received');
+    res.json(transaction);
+  });
+});
+
+// create new transaction - WORKING
+router.post('/', function(req, res, next) {
+  var transaction = new Transaction(req.body)
+
+  transaction.save(function(err) {
+    if (err) {
+      res.send(err)
+    } 
+    console.log('Transaction added!');
+    res.json(transaction);
+  });
+
 });
 
 
