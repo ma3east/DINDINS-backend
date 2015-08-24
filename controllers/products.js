@@ -16,8 +16,7 @@ router.get('/', function(req, res) {
     } else {
       res.json(products);
     }
-
-  })
+  });
 });
 
 //find a single product - WORKING
@@ -30,25 +29,9 @@ router.get('/:product_id', function(req, res){
     res.json(product);
     
   });
-})
+});
 
-//create a new product - not working
-// router.post('/', function(req, res) {
-
-//   Transaction.findById(req.body.transaction.id, function(err, transaction) {
-//     if (err)
-//       console.log(err);
-
-//     Product.create(req.body, function(err2, product) {
-//       if (err2) console.log(err2);
-//       transaction.products.push(product);
-//       res.json('/' + product.id);
-//     });
-//   });
-// });
-
-
-// working??
+// create new product now working
 router.post('/', function(req, res, next) {
   var product = new Product(req.body)
 
@@ -56,7 +39,7 @@ router.post('/', function(req, res, next) {
     if (err) {
       res.send(err)
     } 
-    console.log(product, 'Product added!');
+    console.log('Product added!');
     res.json(product);
   });
 

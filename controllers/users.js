@@ -16,13 +16,31 @@ router.get('/', function(req, res) {
   })
 });
 
-//create a new user
-router.post('/', function(req, res) {
-
-  //code!
-
+//find a single user - WORKING
+router.get('/:user_id', function(req, res){
+  User.findById(req.params.user_id, function(err, user) {
+    if (err) {
+      res.send(err);
+    }
+    console.log('user id ' + req.params.user_id + 'received');
+    res.json(user);
+    
+  });
 });
 
+// create new user - WORKING
+router.post('/', function(req, res, next) {
+  var user = new User(req.body)
+
+  user.save(function(err) {
+    if (err) {
+      res.send(err)
+    } 
+    console.log('User added!');
+    res.json(user);
+  });
+
+});
 
 
 
