@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
-//var User = require('./models/user');
+
+var User = require('../models/user');
+var Product = require('../models/product');
+var Transaction = require('../models/transaction');
 
 //do we really need a users index! to get all users?
 router.get('/api/users', function(req, res) {

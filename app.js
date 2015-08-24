@@ -7,9 +7,9 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 var mongoose = require('mongoose');
 
-//var User = require('./models/user');
+var User = require('./models/user');
 var Product = require('./models/product');
-//var Transaction = require('./models/transaction');
+var Transaction = require('./models/transaction');
 
 mongoose.connect('mongodb://localhost/dindins');
 
