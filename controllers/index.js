@@ -3,19 +3,13 @@ var app = express();
 var router = express.Router();
 var Product = require('../models/product');
 var User = require('../models/user');
+var Transaction = require('../models/transaction');
 
-// router.use('/api', router);
 router.use('/api/users', require('./users'))
 router.use('/api/products', require('./products'))
 router.use('/api/transactions', require('./transactions'))
 
-// middleware to use for all requests
-// router.use(function(req, res, next) {
-//   console.log('routes are go!');
-//   next();
-// });
-
-//get api index - WORKING
+//get api index - NO NEED FOR ANYTHING ON API INDEX
 // router.get('/api', function(req, res) {
 
 //   Product.find(function(err, products) {

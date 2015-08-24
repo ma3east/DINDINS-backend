@@ -2,10 +2,6 @@ var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
 
-
-//router.use('/api', require('./index'))
-// router.use('/api', router);
-
 //get list of products - WORKING
 router.get('/', function(req, res) {
   Product.find(function(err, products) {
@@ -41,8 +37,6 @@ router.get('/:product_id', function(req, res){
 //     }
 //   })
 // });
-
-
 
 
 module.exports = router
