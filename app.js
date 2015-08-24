@@ -19,7 +19,6 @@ var allowCrossDomain = function (req, res, next) {
   next();
 }
 
-
 mongoose.connect('mongodb://localhost/dindins');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,7 +35,10 @@ console.log("Dindin bells are ringing on port " + port);
 // var prod1 = new Product({
 
 //   name: "pasta",
-//   quantity: "2 packets"
+//   quantity: "2 packets",
+//   image: "http://www.fillmurray.com/150/150",
+//   bestBefore: "21 Aug 2015", 
+//   available: true
 
 // })
 
@@ -50,7 +52,9 @@ console.log("Dindin bells are ringing on port " + port);
 
 //   name: "rice",
 //   quantity: "3 packets",
-//   image: "http://www.fillmurray.com/150/150"
+//   image: "http://www.fillmurray.com/150/150",
+//   bestBefore: "01 Aug 2015",
+//   available: true 
 
 // })
 
