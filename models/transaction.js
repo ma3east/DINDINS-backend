@@ -5,8 +5,8 @@ var Schema = mongoose.Schema;
 var transactionSchema = new mongoose.Schema({
 	giverId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 	takerId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-	availableTime: String,
-	meetingTime: Date,
+	availableTime: { type: String, required: true },
+	meetingTime: { type: Date, required: true },
 	location: String,
 	status: Boolean,
 	rating: Number
