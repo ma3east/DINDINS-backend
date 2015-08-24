@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var productSchema = new mongoose.Schema({
-	name: String,
-	image: String,
-	quantity: String,
-	bestBefore: Date,
+	name: { type: String, required: true },
+	image: { type: String, required: true },
+	quantity: { type: String, required: true },
+	bestBefore: { type: Date, required: true },
 	available: Boolean
 });
 
