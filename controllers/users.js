@@ -42,6 +42,21 @@ router.post('/', function(req, res, next) {
 
 });
 
+// delete a user
+// router.delete('/:user_id', function(req, res, next) {
+
+//   User.findByIdAndRemove(req.params.user_id, function(err, user) {
+//     if (err) {
+//       res.json(err);
+//       console.log("There was an error, deleting the user, please check the request.");
+      
+//     } else {
+//       console.log('User has been deleted');
+//       res.json({ message: 'User has been deleted - Yah!' } );
+//     }
+//   });
+// });
+
 
 
 module.exports = router

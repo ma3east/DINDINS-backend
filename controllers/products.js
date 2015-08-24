@@ -51,13 +51,12 @@ router.post('/', function(req, res, next) {
 
 
 // delete a product
-
 router.delete('/:product_id', function(req, res, next) {
 
   Product.findByIdAndRemove(req.params.product_id, function(err, product) {
     if (err) {
-      res.json( { status: 500, message: err });
-      console.log("There was an error, please check the request.");
+      res.json(err);
+      console.log("There was an error, deleting the product, please check the request.");
       
     } else {
       console.log('Product has been deleted');

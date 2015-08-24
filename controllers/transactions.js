@@ -42,6 +42,21 @@ router.post('/', function(req, res, next) {
 
 });
 
+// delete a transaction
+router.delete('/:transaction_id', function(req, res, next) {
+
+  Transaction.findByIdAndRemove(req.params.transaction_id, function(err, transaction) {
+    if (err) {
+      res.json(err);
+      console.log("There was an error, deleting the transaction, please check the request.");
+      
+    } else {
+      console.log('Transaction has been deleted');
+      res.json({ message: 'Transaction has been deleted - Yah!' } );
+    }
+  });
+});
+
 
 
 module.exports = router
