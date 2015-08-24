@@ -5,7 +5,7 @@ var User = require('../models/user');
 var Product = require('../models/product');
 var Transaction = require('../models/transaction');
 
-//test
+//NOTE: Don't need to use /api/products as this bit of the file pulls from index
 
 //get list of products - WORKING
 router.get('/', function(req, res) {
@@ -31,16 +31,32 @@ router.get('/:product_id', function(req, res){
   });
 })
 
-//does not work on this page - why:
-// router.get('/api/products', function(req, res) {
-//   Product.find(function(err, products) {
+
+//create a new product - not working
+router.post('/', function(req, res) {
+
+  User.findById(req.body.user.id, function(err, product) {
+    if (err)
+      console.log(err);
+
+    Product.create(req.body, function(err2, product) {
+      if (err2) console.log(err2);
+      user.products.push(product);
+      res.json('/api/products/' + product.id);
+    });
+  });
+});
+
+// router.post('/api/products', function(req, res) {
+//   var product = new Product(req.body);
+
+//   product.save(function(err) {
 //     if (err) {
-//       console.log(err);
-//       res.json({ message: 'Something wrong - where are the products!' });
-//     } else {
-//       res.json({ products: products, message: 'This is the api products index.'} );
-//     }
-//   })
+//       res.send(err)
+//     } 
+//     res.json({ message: 'Product added.' });
+//   });
+
 // });
 
 

@@ -5,14 +5,19 @@ var User = require('../models/user');
 var Product = require('../models/product');
 var Transaction = require('../models/transaction');
 
-//do we really need a users index! to get all users?
-router.get('/api/users', function(req, res) {
-
-  res.json({ message: 'This is the api users index.'});
+//get list of users (probably not needed but incase)
+router.get('/', function(req, res) {
+  User.find(function(err, users) {
+    if (err) {
+      res.json({ err: err, message: 'Something wrong - where are the users!' });
+    } else {
+      res.json(users);
+    }
+  })
 });
 
 //create a new user
-router.post('api/users', function(req, res) {
+router.post('/', function(req, res) {
 
   //code!
 
