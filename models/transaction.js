@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+var Schema = mongoose.Schema;
+
 var transactionSchema = new mongoose.Schema({
 	giverId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
 	takerId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
