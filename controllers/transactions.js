@@ -7,7 +7,7 @@ var Transaction = require('../models/transaction');
 
 //get list of transactions - WORKING
 router.get('/', function(req, res) {
-  Transaction.find(function(err, transactions) {
+  Transaction.find().populate('giverId takerId products').exec(function(err, transactions) {
     if (err) {
       res.json({ err: err, message: 'Something wrong - where are the transactions!' });
     } else {
@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
 
 //find a single transaction  - WORKING
 router.get('/:transaction_id', function(req, res){
-  Transaction.findById(req.params.transaction_id, function(err, transaction) {
+  Transaction.findById(req.params.transaction_id).populate('giverId takerId products').exec(function(err, transaction) {
     if (err) {
       res.send(err);
     }

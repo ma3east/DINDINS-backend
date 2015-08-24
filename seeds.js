@@ -113,7 +113,7 @@ var cheese4Andrea =
 		status:true,
 		rating:0
 	}
-db.transactions.save(fish4Fran);
+db.transactions.save(cheese4Andrea);
 var apples4Dami = 
 	{
 		giverId:andrea._id,
@@ -125,5 +125,5 @@ var apples4Dami =
 		status:true,
 		rating:0
 	}
-db.transactions.save(fish4Fran);				
+db.transactions.save(apples4Dami);				
 
