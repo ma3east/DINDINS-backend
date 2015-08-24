@@ -1,4 +1,4 @@
-[{"transactions": [
+[ 
 	{
 		"giverId":"1",
 		"takerId":"3",
@@ -35,5 +35,4 @@
 		"status":false,
 		"rating":"0"
 	}
-	]
-}]
+]

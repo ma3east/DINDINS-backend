@@ -1,4 +1,4 @@
-[{"products": [
+[
 	{
 		"name":"cheese",
 		"image":"https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic.neatorama.com%2Fimages%2F2009-06%2Fslice-cheese.jpg&f=1",
@@ -27,5 +27,4 @@
 		"bestBefore":"2015-4-4",
 		"available":false
 	}
-	]
-}]
+]
