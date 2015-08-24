@@ -33,6 +33,7 @@ router.get('/:product_id', function(req, res){
 
 // create new product now working
 router.post('/', function(req, res, next) {
+  console.log(req.body);
   var product = new Product(req.body)
 
   product.save(function(err) {
