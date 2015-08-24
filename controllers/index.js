@@ -1,10 +1,10 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
-//var Product = require('../models/product');
-//var User = require('../models/user');
+var Product = require('../models/product');
+var User = require('../models/user');
 
-router.use('/api', router);
+// router.use('/api', router);
 router.use('/api/users', require('./users'))
 router.use('/api/products', require('./products'))
 router.use('/api/transactions', require('./transactions'))
@@ -16,16 +16,16 @@ router.use('/api/transactions', require('./transactions'))
 // });
 
 //get api index - WORKING
-router.get('/api', function(req, res) {
+// router.get('/api', function(req, res) {
 
-  Product.find(function(err, products) {
-    if (err) {
-      res.json({ err: err, message: 'Something wrong - where are the products!' });
-    } else {
-      res.json({ products: products, message: 'This is a call to the DINDINS API index - are you running dangerously low on food!' } );
-    }
-  })
-});
+//   Product.find(function(err, products) {
+//     if (err) {
+//       res.json({ err: err, message: 'Something wrong - where are the products!' });
+//     } else {
+//       res.json({ products: products, message: 'This is a call to the DINDINS API index - are you running dangerously low on food!' } );
+//     }
+//   })
+// });
 
 
 //why does this route not work when on products page?  - ideally want on products page
@@ -63,6 +63,6 @@ router.get('/api', function(req, res) {
 
 
 
-app.use('/api', router);
+//app.use('/api', router);
 
 module.exports = router
