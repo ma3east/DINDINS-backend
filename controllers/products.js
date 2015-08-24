@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
     if (err) {
       res.json({ err: err, message: 'Something wrong - where are the products!' });
     } else {
-      res.json({ products: products, message: 'This is the api products index.'} );
+      res.json(products);
     }
 
   })

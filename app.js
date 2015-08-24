@@ -20,8 +20,6 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 
-app.use('/api', router);
-
 app.listen(port);
 console.log("Dindin bells are ringing on port " + port);
 
