@@ -5,6 +5,7 @@ var Product = require('../models/product');
 var User = require('../models/user');
 var Transaction = require('../models/transaction');
 
+//router.use('/api', router);
 router.use('/api/users', require('./users'))
 router.use('/api/products', require('./products'))
 router.use('/api/transactions', require('./transactions'))
