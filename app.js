@@ -11,15 +11,24 @@ var User = require('./models/user');
 var Product = require('./models/product');
 var Transaction = require('./models/transaction');
 
+var allowCrossDomain = function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next();
+}
+
+
 mongoose.connect('mongodb://localhost/dindins');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(require('./controllers'));
-
 app.use(morgan('dev'));
+app.use(allowCrossDomain);
 
+app.use(require('./controllers'));
 
 app.listen(port);
 console.log("Dindin bells are ringing on port " + port);
@@ -34,7 +43,7 @@ console.log("Dindin bells are ringing on port " + port);
 // prod1.save(function(err) {
 //   if (err) console.log(err, "nope something went wrong");
 //   console.log("success prod 1 saved!");
-  
+
 // });
 
 // var prod2 = new Product({
@@ -48,5 +57,5 @@ console.log("Dindin bells are ringing on port " + port);
 // prod2.save(function(err) {
 //   if (err) console.log(err, "nope something went wrong");
 //   console.log("success prod 2 saved!");
-  
+
 // });
