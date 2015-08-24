@@ -1,39 +1,39 @@
-{"transactions": [
+[{"transactions": [
 	{
-		"giverId":1,
-		"takerId":3,
+		"giverId":"1",
+		"takerId":"3",
 		"availableTime":"Teusday-Wednesday",
-		"meetingTime":2015-10-10,
+		"meetingTime":"2015-10-10",
 		"location":"My mam's house",
-		"status":False,
-		"rating":0
+		"status":false,
+		"rating":"0"
 	},
 	{
-		"giverId":4,
-		"takerId":1,
+		"giverId":"4",
+		"takerId":"1",
 		"availableTime":"Friday-Wednesday",
-		"meetingTime":2030-01-24,
+		"meetingTime":"2030-01-24",
 		"location":"Your mam's house",
-		"status":False,
-		"rating":0
+		"status":false,
+		"rating":"0"
 	},	
 	{
-		"giverId":2,
-		"takerId":3,
+		"giverId":"2",
+		"takerId":"3",
 		"availableTime":"Teusday-Wednesday",
-		"meetingTime":2055-02-13,
+		"meetingTime":"2055-02-13",
 		"location":"Starbucks",
-		"status":False,
-		"rating":0
+		"status":false,
+		"rating":"0"
 	},
 	{
-		"giverId":4,
-		"takerId":3,
+		"giverId":"4",
+		"takerId":"3",
 		"availableTime":"Teusday-Wednesday",
-		"meetingTime":2066-09-13,
+		"meetingTime":"2066-09-13",
 		"location":"Titan",
-		"status":False,
-		"rating":0
+		"status":false,
+		"rating":"0"
 	}
 	]
-}
+}]
