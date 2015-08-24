@@ -50,7 +50,7 @@ router.post('/', function(req, res, next) {
 // update a product
 
 
-// delete a product
+// delete a product - WORKING
 router.delete('/:product_id', function(req, res, next) {
 
   Product.findByIdAndRemove(req.params.product_id, function(err, product) {
@@ -65,20 +65,5 @@ router.delete('/:product_id', function(req, res, next) {
   });
 });
 
-// router.delete('/:product_id', function(req, res, next) {
-
-//   Product.findById(req.params.id, function(err, product) {
-
-//     product.remove({}, function(err) {
-//       if (err){
-//         res.send(err);
-//       } else {
-//         console.log(req.body.name + ' Product has been deleted - way to go!');
-//         res.json({ message: 'Product has been deleted - Yah!' } );
-//       }    
-//     });
-//   });
-
-// });
 
 module.exports = router

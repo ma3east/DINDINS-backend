@@ -42,7 +42,7 @@ router.post('/', function(req, res, next) {
 
 });
 
-// delete a user
+// delete a user - WORKING
 router.delete('/:user_id', function(req, res, next) {
 
   User.findByIdAndRemove(req.params.user_id, function(err, user) {
@@ -56,8 +56,6 @@ router.delete('/:user_id', function(req, res, next) {
     }
   });
 });
-
-
 
 module.exports = router
 

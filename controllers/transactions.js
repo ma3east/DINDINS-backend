@@ -5,7 +5,7 @@ var User = require('../models/user');
 var Product = require('../models/product');
 var Transaction = require('../models/transaction');
 
-//get list of transactions - working
+//get list of transactions - WORKING
 router.get('/', function(req, res) {
   Transaction.find(function(err, transactions) {
     if (err) {
@@ -17,9 +17,9 @@ router.get('/', function(req, res) {
   })
 });
 
-//find a single transaction - working
+//find a single transaction  - WORKING
 router.get('/:transaction_id', function(req, res){
-  Transaction.findById(req.params.transaction_id, function(err, user) {
+  Transaction.findById(req.params.transaction_id, function(err, transaction) {
     if (err) {
       res.send(err);
     }
@@ -42,7 +42,7 @@ router.post('/', function(req, res, next) {
 
 });
 
-// delete a transaction
+// delete a transaction - WORKING
 router.delete('/:transaction_id', function(req, res, next) {
 
   Transaction.findByIdAndRemove(req.params.transaction_id, function(err, transaction) {
