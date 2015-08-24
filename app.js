@@ -11,14 +11,23 @@ var User = require('./models/user');
 var Product = require('./models/product');
 var Transaction = require('./models/transaction');
 
-mongoose.connect('mongodb://localhost/dindins');
+var allowCrossDomain = function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
 
-app.use(require('./controllers'));
+  next();
+}
+
+mongoose.connect('mongodb://localhost/dindins');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(morgan('dev'));
 
+app.use(morgan('dev'));
+app.use(allowCrossDomain);
+
+app.use(require('./controllers'));
 
 app.listen(port);
 console.log("Dindin bells are ringing on port " + port);
@@ -26,25 +35,31 @@ console.log("Dindin bells are ringing on port " + port);
 // var prod1 = new Product({
 
 //   name: "pasta",
-//   quantity: "2 packets"
+//   quantity: "2 packets",
+//   image: "http://www.fillmurray.com/150/150",
+//   bestBefore: "21 Aug 2015", 
+//   available: true
 
 // })
 
 // prod1.save(function(err) {
 //   if (err) console.log(err, "nope something went wrong");
 //   console.log("success prod 1 saved!");
-  
+
 // });
 
 // var prod2 = new Product({
 
 //   name: "rice",
-//   quantity: "3 packets"
+//   quantity: "3 packets",
+//   image: "http://www.fillmurray.com/150/150",
+//   bestBefore: "01 Aug 2015",
+//   available: true 
 
 // })
 
 // prod2.save(function(err) {
 //   if (err) console.log(err, "nope something went wrong");
 //   console.log("success prod 2 saved!");
-  
+
 // });

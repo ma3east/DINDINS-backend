@@ -5,21 +5,57 @@ var User = require('../models/user');
 var Product = require('../models/product');
 var Transaction = require('../models/transaction');
 
-//do we really need a users index! to get all users?
-router.get('/api/users', function(req, res) {
-
-  res.json({ message: 'This is the api users index.'});
+//get list of users (probably not needed but incase)
+router.get('/', function(req, res) {
+  User.find(function(err, users) {
+    if (err) {
+      res.json({ err: err, message: 'Something wrong - where are the users!' });
+    } else {
+      res.json(users);
+    }
+  })
 });
 
-//create a new user
-router.post('api/users', function(req, res) {
+//find a single user - WORKING
+router.get('/:user_id', function(req, res){
+  User.findById(req.params.user_id, function(err, user) {
+    if (err) {
+      res.send(err);
+    }
+    console.log('user id ' + req.params.user_id + 'received');
+    res.json(user);
+    
+  });
+});
 
-  //code!
+// create new user - WORKING
+router.post('/', function(req, res, next) {
+  var user = new User(req.body)
+
+  user.save(function(err) {
+    if (err) {
+      res.send(err)
+    } 
+    console.log('User added!');
+    res.json(user);
+  });
 
 });
 
+// delete a user - WORKING
+router.delete('/:user_id', function(req, res, next) {
 
-
+  User.findByIdAndRemove(req.params.user_id, function(err, user) {
+    if (err) {
+      res.json(err);
+      console.log("There was an error, deleting the user, please check the request.");
+      
+    } else {
+      console.log('User has been deleted');
+      res.json({ message: 'User has been deleted - Yah!' } );
+    }
+  });
+});
 
 module.exports = router
 
