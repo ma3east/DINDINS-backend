@@ -110,7 +110,7 @@ var cheese4Andrea =
 		availableTime: "1am",
 		meetingTime:"2015-10-8",
 		location:"Sweden",
-		status:"failed",
+		status:"taken",
 		rating:0
 	}
 db.transactions.save(cheese4Andrea);
@@ -122,7 +122,7 @@ var apples4Dami =
 		availableTime: "11pm",
 		meetingTime:"2044-6-3",
 		location:"Brick Pain",
-		status:"waiting for reviews",
+		status:"rated",
 		rating:0
 	}
 db.transactions.save(apples4Dami);				
