@@ -16,7 +16,7 @@ userSchema.pre('save', function(next) {
   var user = this;
 
   // Only hash the password if it has been modified (or is new)
-  // if (!user.isModified('password')) return next();
+  if (!user.isModified('password')) return next();
 
   // Generate a salt, with a salt_work_factor of 5
   bcrypt.genSalt(5, function(err, salt) {
