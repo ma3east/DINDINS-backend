@@ -1,11 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
+var bcrypt = require('bcrypt');
 
 var User = require('../models/user');
 var Product = require('../models/product');
 var Transaction = require('../models/transaction');
+var jwt = require('jsonwebtoken')
 
-//get list of users (probably not needed but incase)
+var secret = "Secret";
+
+//get list of users (probably not needed but incase) - WORKING
 router.get('/', function(req, res) {
   User.find(function(err, users) {
     if (err) {
@@ -15,6 +20,44 @@ router.get('/', function(req, res) {
     }
   })
 });
+
+//login a user - WORKING
+
+router.post('/login', function(req, res) {
+
+  var userParams = req.body;
+  User.findOne({ email: userParams.email }, function(err, user) {
+    user.authenticate(userParams.password, function(err, isMatch) {
+      if (err) {
+        throw err;
+      }
+      if (isMatch) {
+        var myInfo = { 
+            email:user.email,
+            username: user.username,
+            id:user._id
+          }
+        var token = jwt.sign(myInfo, secret);
+        console.log("valid credentials: " + "\n" + user);    
+        res.status(200).send( 
+        { 
+          message: "Well done, registered", 
+          token: token,
+          user: myInfo
+        } 
+        );  
+      } else {
+        console.log("error no match");
+        res.status(401).send( 
+        {
+          message: "The credentials provided do not match to a registered user!"
+        } 
+        );       
+      };
+    });
+  });
+});
+
 
 //find a single user - WORKING
 router.get('/:user_id', function(req, res){
@@ -28,18 +71,30 @@ router.get('/:user_id', function(req, res){
   });
 });
 
-// create new user - WORKING
+// create new user - WORKING (and password hashed)
 router.post('/', function(req, res) {
   var user = new User(req.body)
-
-  user.save(function(err) {
+  user.save(function(err, user) {
     if (err) {
-      res.send(err)
+      console.log(err);
+      res.status(401).send( {message: "Email already registered"});
+    } else {
+      var myInfo = { 
+          email:user.email,
+          username: user.username,
+          id:user._id
+      }
+      var token = jwt.sign(myInfo, secret);
+      console.log('User added!');
+      res.status(200).send( 
+        { 
+          message: "Well done, registered", 
+          token: token,
+          user: myInfo 
+        } 
+      );
     } 
-    console.log('User added!');
-    res.json(user);
   });
-
 });
 
 // update a user - WORKING
@@ -84,7 +139,3 @@ router.delete('/:user_id', function(req, res) {
 });
 
 module.exports = router
-
-
-
-

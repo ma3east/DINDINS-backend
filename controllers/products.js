@@ -39,7 +39,7 @@ router.post('/', function(req, res) {
   product.save(function(err) {
     if (err) {
       res.send(err)
-      console.log('product was NOT added')
+      console.log('product was NOT added', err)
     } else {
       console.log(req.body.name + ' added!');
       res.json(product);
