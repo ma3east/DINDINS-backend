@@ -87,7 +87,7 @@ var expressJWT = require('express-jwt')
 ,   jwt        = require('jsonwebtoken');
 var secret     = "WHOSREADYFORDINDINS";
 
-app.use("/:id", expressJWT({secret:secret}))
+app.use("/", expressJWT({secret:secret}))
 app.use(function(error, request, response, next){
   if(error.name == "UnauthorizedError") {
     response.status(401).json({message: "You need a key for that"})

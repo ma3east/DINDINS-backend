@@ -7,7 +7,7 @@ var userSchema = new mongoose.Schema({
 	password: { type: String, required: true }
 })
 
-UserSchema.set('toJSON', {
+userSchema.set('toJSON', {
 	transform: function(don, ret, options) {
 		var returnJson = {
 			id: ret._id,
