@@ -86,7 +86,7 @@ var fish4Fran =
 		availableTime: "3pm",
 		meetingTime:"2012-1-8",
 		location:sam.location,
-		status:true,
+		status:"open",
 		rating:0
 	}
 db.transactions.save(fish4Fran);
@@ -98,7 +98,7 @@ var ham4Sam =
 		availableTime: "7pm",
 		meetingTime:"2016-10-18",
 		location:sam.location,
-		status:true,
+		status:"open",
 		rating:0
 	}
 db.transactions.save(ham4Sam);
@@ -110,7 +110,7 @@ var cheese4Andrea =
 		availableTime: "1am",
 		meetingTime:"2015-10-8",
 		location:"Sweden",
-		status:true,
+		status:"failed",
 		rating:0
 	}
 db.transactions.save(cheese4Andrea);
@@ -122,7 +122,7 @@ var apples4Dami =
 		availableTime: "11pm",
 		meetingTime:"2044-6-3",
 		location:"Brick Pain",
-		status:true,
+		status:"waiting for reviews",
 		rating:0
 	}
 db.transactions.save(apples4Dami);				
