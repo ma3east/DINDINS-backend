@@ -33,7 +33,7 @@ router.post('/login', function(req, res) {
 
       if (isMatch) {
         console.log("valid credentials: " + "\n" + user);
-        res.json(user);  
+        res.status(200).send( { message: "Well done, registered", token: "lol" } );  
       } else {
         console.log("error no match");
         res.status(401).send( {message: "The credentials provided do not match to a registered user!"} );
