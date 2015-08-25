@@ -9,7 +9,7 @@ var transactionSchema = new mongoose.Schema({
 	availableTime: String,
 	meetingTime: Date,
 	location: String,
-	status: Boolean,
+	status: String,
 	rating: Number
 })
 
