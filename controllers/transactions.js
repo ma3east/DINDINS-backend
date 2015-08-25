@@ -34,7 +34,8 @@ router.post('/', function(req, res) {
 
   transaction.save(function(err) {
     if (err) {
-      res.send(err)
+      console.log(err);
+      res.send(err);
     } 
     console.log('Transaction added!');
     res.json(transaction);
