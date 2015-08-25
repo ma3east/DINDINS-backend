@@ -6,7 +6,8 @@ var userSchema = new mongoose.Schema({
 	username: String,
 	email: { type: String, required: true, index: { unique: true } },
 	location: String,
-	password: { type: String, required: true }
+	password: { type: String, required: true },
+  reputation: Number
 })
 
 //bcrypt stuff
