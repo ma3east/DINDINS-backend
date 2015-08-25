@@ -32,7 +32,7 @@ router.get('/:product_id', function(req, res){
 });
 
 // create new product - WORKING
-router.post('/', function(req, res, next) {
+router.post('/', function(req, res) {
   console.log(req.body);
   var product = new Product(req.body)
 
@@ -74,7 +74,7 @@ router.put('/:product_id', function(req,res) {
 })
 
 // delete a product - WORKING
-router.delete('/:product_id', function(req, res, next) {
+router.delete('/:product_id', function(req, res) {
 
   Product.findByIdAndRemove(req.params.product_id, function(err, product) {
     if (err) {

@@ -29,7 +29,7 @@ router.get('/:transaction_id', function(req, res){
 });
 
 // create new transaction - WORKING
-router.post('/', function(req, res, next) {
+router.post('/', function(req, res) {
   var transaction = new Transaction(req.body)
 
   transaction.save(function(err) {
@@ -44,7 +44,7 @@ router.post('/', function(req, res, next) {
 
 // update a transaction - WORKING
 
-router.put('/:transaction_id', function(req,res) {
+router.put('/:transaction_id', function(req, res) {
   Transaction.findById(req.params.transaction_id, function(err, transaction) {
     if (err) {
       console.log(err);
@@ -69,7 +69,7 @@ router.put('/:transaction_id', function(req,res) {
 })
 
 // delete a transaction - WORKING
-router.delete('/:transaction_id', function(req, res, next) {
+router.delete('/:transaction_id', function(req, res) {
 
   Transaction.findByIdAndRemove(req.params.transaction_id, function(err, transaction) {
     if (err) {
@@ -82,7 +82,6 @@ router.delete('/:transaction_id', function(req, res, next) {
     }
   });
 });
-
 
 
 module.exports = router

@@ -29,7 +29,7 @@ router.get('/:user_id', function(req, res){
 });
 
 // create new user - WORKING
-router.post('/', function(req, res, next) {
+router.post('/', function(req, res) {
   var user = new User(req.body)
 
   user.save(function(err) {
@@ -44,7 +44,7 @@ router.post('/', function(req, res, next) {
 
 // update a user - WORKING
 
-router.put('/:user_id', function(req,res) {
+router.put('/:user_id', function(req, res) {
   User.findById(req.params.user_id, function(err, user) {
     if (err) {
       console.log(err);
@@ -69,7 +69,7 @@ router.put('/:user_id', function(req,res) {
 })
 
 // delete a user - WORKING
-router.delete('/:user_id', function(req, res, next) {
+router.delete('/:user_id', function(req, res) {
 
   User.findByIdAndRemove(req.params.user_id, function(err, user) {
     if (err) {
