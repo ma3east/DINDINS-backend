@@ -52,34 +52,3 @@ app.use(function(err, req, res, next) {
 app.listen(port);
 console.log("Dindin bells are ringing on port " + port);
 
-// var prod1 = new Product({
-
-//   name: "pasta",
-//   quantity: "2 packets",
-//   image: "http://www.fillmurray.com/150/150",
-//   bestBefore: "21 Aug 2015", 
-//   available: true
-
-// })
-
-// prod1.save(function(err) {
-//   if (err) console.log(err, "nope something went wrong");
-//   console.log("success prod 1 saved!");
-
-// });
-
-// var prod2 = new Product({
-
-//   name: "rice",
-//   quantity: "3 packets",
-//   image: "http://www.fillmurray.com/150/150",
-//   bestBefore: "01 Aug 2015",
-//   available: true 
-
-// })
-
-// prod2.save(function(err) {
-//   if (err) console.log(err, "nope something went wrong");
-//   console.log("success prod 2 saved!");
-
-// });
