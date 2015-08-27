@@ -39,6 +39,7 @@ router.get('/:transaction_id', function(req, res){
 
 // create new transaction - WORKING
 router.post('/', function(req, res) {
+<<<<<<< HEAD
   var transaction = new Transaction(req.body)
 
   transaction.save(function(err) {
@@ -50,6 +51,16 @@ router.post('/', function(req, res) {
     res.json(transaction);
   });
 
+=======
+  var transaction = new Transaction(req.body);  
+    transaction.save(function(err) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } 
+      res.json(transaction);
+    });
+>>>>>>> developmentSam
 });
 
 

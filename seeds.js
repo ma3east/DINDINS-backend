@@ -82,40 +82,48 @@ var fish4Fran =
 	{
 		giverId:sam._id,
 		products:fish._id,
-		availableTime: "2015-08-30T07:00:00.000Z",
-		location:sam.location,
+		availableTime: "3pm",
+		location:"Oxford Circus London",
 		status:"open",
-		rating:0
+		rating:0,
+		lat:51.4898,
+		lng:-0.04801
 	}
 db.transactions.save(fish4Fran);
 var ham4Sam = 
 	{
 		giverId:dami._id,
 		products:hami._id,
-		availableTime: "2015-08-30T20:00:00.000Z",
-		location:sam.location,
+		availableTime: "7pm",
+		location:"Peckham London",
 		status:"open",
-		rating:0
+		rating:0,
+		lat:51.49765,
+		lng:-0.06937
 	}
 db.transactions.save(ham4Sam);
 var cheese4Andrea = 
 	{
 		giverId:fran._id,
 		products:cheese._id,
-		availableTime: "2015-08-31T15:00:00.000Z",
-		location:"Sweden",
+		availableTime: "1am",
+		location:"Camden London",
 		status:"open",
-		rating:0
+		rating:0,
+		lat:51.49186,
+		lng:-.073067
 	}
 db.transactions.save(cheese4Andrea);
 var apples4Dami = 
 	{
 		giverId:andrea._id,
 		products:apples._id,
-		availableTime: "2015-09-01T12:00:00.000Z",
-		location:"Brick Pain",
+		availableTime: "11pm",
+		location:"Brick Lane London",
 		status:"open",
-		rating:0
+		rating:0,
+		lat:51.5220066,
+		lng:-.084512
 	}
 db.transactions.save(apples4Dami);				
 
