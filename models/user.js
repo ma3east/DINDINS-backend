@@ -8,7 +8,6 @@ var userSchema = new mongoose.Schema({
 	location: String,
 	password: { type: String, required: true }
 })
-
 //bcrypt stuff
 userSchema.pre('save', function(next) {
 

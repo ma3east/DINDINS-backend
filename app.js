@@ -50,9 +50,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.listen(port);
-console.log("Dindin bells are ringing on port " + port);
-
 // var prod1 = new Product({
 
 //   name: "pasta",
@@ -84,3 +81,28 @@ console.log("Dindin bells are ringing on port " + port);
 //   console.log("success prod 2 saved!");
 
 // });
+
+//===============JWT STUFF=============
+var expressJWT = require('express-jwt')
+,   jwt        = require('jsonwebtoken');
+var secret     = "WHOSREADYFORDINDINS";
+
+app.use("/", expressJWT({secret:secret}))
+app.use(function(error, request, response, next){
+  if(error.name == "UnauthorizedError") {
+    response.status(401).json({message: "You need a key for that"})
+  }
+})
+
+app.post('/authorization', function(request, response) {
+  var myInfo = {
+    user:request.body.username,
+    password:request.body.password,
+    id:request.body._id
+  }
+  var token = jwt.sign(myInfo, secret);
+  response.json({ user: myInfo, token: token })
+})
+
+app.listen(port);
+console.log("Dindin bells are ringing on port " + port);
