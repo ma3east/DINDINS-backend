@@ -39,6 +39,7 @@ router.post('/', function(req, res) {
     } 
     console.log('Transaction added!');
     res.json(transaction);
+    console.log(req.body)
   });
 
 });
