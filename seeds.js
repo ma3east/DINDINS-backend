@@ -82,7 +82,7 @@ var fish4Fran =
 	{
 		giverId:sam._id,
 		products:fish._id,
-		availableTime: ["2015-08-30T07:00:00.000Z","2015-08-30T10:00:00.000Z"],
+		availableTime: "2015-08-30T07:00:00.000Z",
 		location:sam.location,
 		status:"open",
 		rating:0
@@ -92,7 +92,7 @@ var ham4Sam =
 	{
 		giverId:dami._id,
 		products:hami._id,
-		availableTime: ["2015-08-30T20:00:00.000Z","2015-08-30T21:00:00.000Z"],
+		availableTime: "2015-08-30T20:00:00.000Z",
 		location:sam.location,
 		status:"open",
 		rating:0
@@ -102,7 +102,7 @@ var cheese4Andrea =
 	{
 		giverId:fran._id,
 		products:cheese._id,
-		availableTime: ["2015-08-31T15:00:00.000Z","2015-08-31T16:00:00.000Z"],
+		availableTime: "2015-08-31T15:00:00.000Z",
 		location:"Sweden",
 		status:"open",
 		rating:0
@@ -112,7 +112,7 @@ var apples4Dami =
 	{
 		giverId:andrea._id,
 		products:apples._id,
-		availableTime: ["2015-09-01T12:00:00.000Z","2015-09-01T14:00:00.000Z"],
+		availableTime: "2015-09-01T12:00:00.000Z",
 		location:"Brick Pain",
 		status:"open",
 		rating:0
