@@ -98,6 +98,7 @@ var ham4Sam =
 		rating:0
 	}
 db.transactions.save(ham4Sam);
+
 var cheese4Andrea = 
 	{
 		giverId:fran._id,
