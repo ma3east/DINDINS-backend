@@ -103,7 +103,7 @@ router.put('/:user_id', function(req, res) {
   User.findByIdAndUpdate(req.params.user_id, req.body, function(err, user) {
     if (err) {
       console.log(err);
-      res.send(err);
+      res.json(err);
     } else {
       res.json(user);
     }

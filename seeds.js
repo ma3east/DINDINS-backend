@@ -83,7 +83,6 @@ var fish4Fran =
 		giverId:sam._id,
 		products:fish._id,
 		availableTime: "3pm",
-		meetingTime:"2012-1-8",
 		location:sam.location,
 		status:"open",
 		rating:0
@@ -94,7 +93,6 @@ var ham4Sam =
 		giverId:dami._id,
 		products:hami._id,
 		availableTime: "7pm",
-		meetingTime:"2016-10-18",
 		location:sam.location,
 		status:"open",
 		rating:0
@@ -105,7 +103,6 @@ var cheese4Andrea =
 		giverId:fran._id,
 		products:cheese._id,
 		availableTime: "1am",
-		meetingTime:"2015-10-8",
 		location:"Sweden",
 		status:"open",
 		rating:0
@@ -116,7 +113,6 @@ var apples4Dami =
 		giverId:andrea._id,
 		products:apples._id,
 		availableTime: "11pm",
-		meetingTime:"2044-6-3",
 		location:"Brick Pain",
 		status:"open",
 		rating:0
