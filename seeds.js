@@ -82,7 +82,7 @@ var fish4Fran =
 	{
 		giverId:sam._id,
 		products:fish._id,
-		availableTime: "3pm",
+		availableTime: ["2015-08-30T07:00:00.000Z","2015-08-30T10:00:00.000Z"],
 		location:"Oxford Circus London",
 		status:"open",
 		rating:0,
@@ -94,7 +94,7 @@ var ham4Sam =
 	{
 		giverId:dami._id,
 		products:hami._id,
-		availableTime: "7pm",
+		availableTime: ["2015-08-30T20:00:00.000Z","2015-08-30T21:00:00.000Z"],
 		location:"Peckham London",
 		status:"open",
 		rating:0,
@@ -107,7 +107,7 @@ var cheese4Andrea =
 	{
 		giverId:fran._id,
 		products:cheese._id,
-		availableTime: "1am",
+		availableTime: ["2015-08-31T15:00:00.000Z","2015-08-31T16:00:00.000Z"],
 		location:"Camden London",
 		status:"open",
 		rating:0,
@@ -119,7 +119,7 @@ var apples4Dami =
 	{
 		giverId:andrea._id,
 		products:apples._id,
-		availableTime: "11pm",
+		availableTime: ["2015-09-01T12:00:00.000Z","2015-09-01T14:00:00.000Z"],
 		location:"Brick Lane London",
 		status:"open",
 		rating:0,
