@@ -35,7 +35,6 @@ router.post('/search', function(req, res) {
             var productData = JSON.parse(tesco).Products;
 
             console.log("Number of products = " + productData.length);
-            console.log(productData);
 
             res.send(productData);
 
@@ -72,7 +71,6 @@ router.get('/:product_id', function(req, res){
 
 // create new product - WORKING
 router.post('/', function(req, res) {
-  console.log(req.body);
   var product = new Product(req.body)
 
   product.save(function(err) {
