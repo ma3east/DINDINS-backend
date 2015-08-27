@@ -102,6 +102,7 @@ var ham4Sam =
 		lng:-0.06937
 	}
 db.transactions.save(ham4Sam);
+
 var cheese4Andrea = 
 	{
 		giverId:fran._id,
