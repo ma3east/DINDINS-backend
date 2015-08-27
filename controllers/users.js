@@ -33,10 +33,10 @@ router.post('/login', function(req, res) {
       }
       if (isMatch) {
         var myInfo = { 
-            email:user.email,
-            username: user.username,
-            id:user._id
-          }
+          email:user.email,
+          username: user.username,
+          id:user._id
+        }
         var token = jwt.sign(myInfo, secret);
         console.log("valid credentials: " + "\n" + user);    
         res.status(200).send( 
@@ -80,18 +80,18 @@ router.post('/', function(req, res) {
       res.status(401).send( {message: "Email already registered"});
     } else {
       var myInfo = { 
-          email:user.email,
-          username: user.username,
-          id:user._id
+        email:user.email,
+        username: user.username,
+        id:user._id
       }
       var token = jwt.sign(myInfo, secret);
       console.log('User added!');
       res.status(200).send( 
-        { 
-          message: "Well done, registered", 
-          token: token,
-          user: myInfo 
-        } 
+      { 
+        message: "Well done, registered", 
+        token: token,
+        user: myInfo 
+      } 
       );
     } 
   });
@@ -100,26 +100,13 @@ router.post('/', function(req, res) {
 // update a user - WORKING
 
 router.put('/:user_id', function(req, res) {
-  User.findById(req.params.user_id, function(err, user) {
+  User.findByIdAndUpdate(req.params.user_id, req.body, function(err, user) {
     if (err) {
       console.log(err);
       res.send(err);
+    } else {
+      res.json(user);
     }
-
-    for (property in req.body) {
-      user[property] = req.body[property];
-    }
-
-    // save the updated user
-    user.save(function(err) {
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } else {
-        console.log("User updated for user_id " + req.params.user_id);
-        res.json(user);
-      }
-    });
   });
 })
 

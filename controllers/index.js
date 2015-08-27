@@ -7,7 +7,7 @@ var Transaction = require('../models/transaction');
 var expressJWT = require('express-jwt');
 
 //middleware to check for token
-router.use('/api', expressJWT({ secret: process.env.DINDINSSECRET || "Secret" }).unless({ path: ['/api/users/login', '/api/transactions' ,'/api/users']}), function (error, request, response, next) {
+router.use('/api', expressJWT({ secret: process.env.DINDINSSECRET || "Secret" }).unless({ path: ['/api/users/login', '/api/transactions' ,'/api/users', '/api/products/search']}), function (error, request, response, next) {
   if (error.name === 'UnauthorizedError') {
     console.log(error);
     response.status(401).json({message: 'You need an authorization token to view confidential information.'});

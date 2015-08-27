@@ -5,8 +5,47 @@ var User = require('../models/user');
 var Transaction = require('../models/transaction');
 var Product = require('../models/product');
 
+var tescoDevKey = process.env.TESCO_DEVELOPER_KEY;
+var tescoAppKey = process.env.TESCO_APPLICATION_KEY;
 
-//NOTE: Don't need to use /api/products as this bit of the file pulls from index
+var request = require('request');
+
+//Product Search - WORKING:
+
+router.post('/search', function(req, res) {
+
+  request('https://secure.techfortesco.com/tescolabsapi/restservice.aspx?command=LOGIN&email=&password=&developerkey='+tescoDevKey+'&applicationkey='+tescoAppKey, 
+    function(error, response, body) {
+
+      if (!error && response.statusCode == 200) {
+
+      //run first request to get session key
+      var tescoSessionKey = JSON.parse(body).SessionKey;
+
+      // run second request doing product search
+      var searchTerm = encodeURIComponent(req.body.search);
+
+       //use page 0 to return all search results, note depending on search term could be large amount of products
+       var page = 1;
+
+       request('https://secure.techfortesco.com/tescolabsapi/restservice.aspx?command=PRODUCTSEARCH&searchtext='+searchTerm+'&page='+page+'&sessionkey='+tescoSessionKey, 
+        function(error, response, tesco) {
+
+          if (!error && response.statusCode == 200) {
+            var productData = JSON.parse(tesco).Products;
+
+            console.log("Number of products = " + productData.length);
+            console.log(productData);
+
+            res.send(productData);
+
+          } else {
+            console.log(error);
+          }
+        }) 
+     } 
+   }) 
+})
 
 //get list of products - WORKING
 router.get('/', function(req, res) {
