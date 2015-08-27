@@ -22,7 +22,6 @@ router.get('/', function(req, res) {
     } else {
       res.json(transactions);
     }
-
   })
 });
 
@@ -39,6 +38,7 @@ router.get('/:transaction_id', function(req, res){
 
 // create new transaction - WORKING
 router.post('/', function(req, res) {
+<<<<<<< HEAD
   var transaction = new Transaction(req.body)
 
   transaction.save(function(err) {
@@ -55,26 +55,13 @@ router.post('/', function(req, res) {
 // update a transaction - WORKING
 
 router.put('/:transaction_id', function(req, res) {
-  Transaction.findById(req.params.transaction_id, function(err, transaction) {
+  Transaction.findByIdAndUpdate(req.params.transaction_id, req.body, function(err, transaction) {
     if (err) {
       console.log(err);
       res.send(err);
+    } else {
+      res.json(transaction);
     }
-
-    for (property in req.body) {
-      transaction[property] = req.body[property];
-    }
-
-    // save the updated transaction
-    transaction.save(function(err) {
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } else {
-        console.log("Transaction updated for transaction_id " + req.params.transaction_id);
-        res.json(transaction);
-      }
-    });
   });
 })
 
