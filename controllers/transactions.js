@@ -39,22 +39,19 @@ router.get('/:transaction_id', function(req, res){
 
 // create new transaction - WORKING
 router.post('/', function(req, res) {
-  var transaction = new Transaction(req.body);  
-  geocoder.geocode(transaction.location, function(err, res) {
-    transaction.lat = res[0].latitude;
-    transaction.lng = res[0].longitude;
+  var transaction = new Transaction(req.body)
 
-    transaction.save(function(err) {
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } 
-      console.log('Transaction added!');
-      res.json(transaction);
-      console.log(transaction)
-    });
+  transaction.save(function(err) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } 
+    console.log('Transaction added!');
+    res.json(transaction);
   });
+
 });
+
 
 // update a transaction - WORKING
 
