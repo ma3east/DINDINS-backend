@@ -10,7 +10,9 @@ var transactionSchema = new mongoose.Schema({
 	meetingTime: Date,
 	location: String,
 	status: String,
-	rating: Number
+	rating: Number,
+	lng: Number,
+	lat:Number
 })
 
 var Transaction = mongoose.model('Transaction', transactionSchema);

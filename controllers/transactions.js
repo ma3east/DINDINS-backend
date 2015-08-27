@@ -1,5 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var geocoderProvider = 'google';
+var httpAdapter = 'https';
+var key = process.env.GOOGLE_GEOCODER_API;
+var extra = {
+  apiKey: key,
+  formatter: null
+}
+var geocoder = require('node-geocoder')(geocoderProvider, httpAdapter, extra);
+
 
 var User = require('../models/user');
 var Product = require('../models/product');
@@ -30,18 +39,21 @@ router.get('/:transaction_id', function(req, res){
 
 // create new transaction - WORKING
 router.post('/', function(req, res) {
-  var transaction = new Transaction(req.body)
+  var transaction = new Transaction(req.body);  
+  geocoder.geocode(transaction.location, function(err, res) {
+    transaction.lat = res[0].latitude;
+    transaction.lng = res[0].longitude;
 
-  transaction.save(function(err) {
-    if (err) {
-      console.log(err);
-      res.send(err);
-    } 
-    console.log('Transaction added!');
-    res.json(transaction);
-    console.log(req.body)
+    transaction.save(function(err) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } 
+      console.log('Transaction added!');
+      res.json(transaction);
+      console.log(transaction)
+    });
   });
-
 });
 
 // update a transaction - WORKING
