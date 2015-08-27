@@ -86,7 +86,9 @@ var fish4Fran =
 		meetingTime:"2012-1-8",
 		location:sam.location,
 		status:"open",
-		rating:0
+		rating:0,
+		lat:51.5678,
+		lng:-0.3001
 	}
 db.transactions.save(fish4Fran);
 var ham4Sam = 
@@ -97,7 +99,9 @@ var ham4Sam =
 		meetingTime:"2016-10-18",
 		location:sam.location,
 		status:"open",
-		rating:0
+		rating:0,
+		lat:51.5,
+		lng:-0.3347
 	}
 db.transactions.save(ham4Sam);
 var cheese4Andrea = 
@@ -108,7 +112,9 @@ var cheese4Andrea =
 		meetingTime:"2015-10-8",
 		location:"Sweden",
 		status:"open",
-		rating:0
+		rating:0,
+		lat:59.3500,
+		lng:18.0667
 	}
 db.transactions.save(cheese4Andrea);
 var apples4Dami = 
@@ -119,7 +125,9 @@ var apples4Dami =
 		meetingTime:"2044-6-3",
 		location:"Brick Pain",
 		status:"open",
-		rating:0
+		rating:0,
+		lat:51.5220066,
+		lng:-.0717512
 	}
 db.transactions.save(apples4Dami);				
 
