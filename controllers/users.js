@@ -22,7 +22,6 @@ router.get('/', function(req, res) {
 });
 
 //login a user - WORKING
-
 router.post('/login', function(req, res) {
 
   var userParams = req.body;
@@ -98,7 +97,6 @@ router.post('/', function(req, res) {
 });
 
 // update a user - WORKING
-
 router.put('/:user_id', function(req, res) {
   User.findByIdAndUpdate(req.params.user_id, req.body, function(err, user) {
     if (err) {

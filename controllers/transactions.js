@@ -9,7 +9,6 @@ var extra = {
 }
 var geocoder = require('node-geocoder')(geocoderProvider, httpAdapter, extra);
 
-
 var User = require('../models/user');
 var Product = require('../models/product');
 var Transaction = require('../models/transaction');
@@ -52,7 +51,6 @@ router.post('/', function(req, res) {
 
 
 // update a transaction - WORKING
-
 router.put('/:transaction_id', function(req, res) {
   Transaction.findByIdAndUpdate(req.params.transaction_id, req.body, function(err, transaction) {
     if (err) {
@@ -78,6 +76,5 @@ router.delete('/:transaction_id', function(req, res) {
     }
   });
 });
-
 
 module.exports = router

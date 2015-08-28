@@ -85,7 +85,6 @@ router.post('/', function(req, res) {
 });
 
 // update a product - WORKING
-
 router.put('/:product_id', function(req,res) {
   Product.findById(req.params.product_id, function(err, product) {
     if (err) {
